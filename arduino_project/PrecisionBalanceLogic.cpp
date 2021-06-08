@@ -30,17 +30,11 @@
     switch(group) {
       case 'A':
         weight = scales[0].get_units(NUMBER_OF_READINGS);
-        Serial.println(weight); 
         weight += scales[1].get_units(NUMBER_OF_READINGS);
-        Serial.println(weight); 
-//        Serial.println(weight);
-//        weight += scales[2].get_units(NUMBER_OF_READINGS);
-//        Serial.println(weight);
-//        weight += scales[3].get_units(NUMBER_OF_READINGS);
-//        Serial.println(weight);
-       
-        
+        weight += scales[2].get_units(NUMBER_OF_READINGS);
+        weight += scales[3].get_units(NUMBER_OF_READINGS);
         break;
+        
       case 'B':
         weight = scales[4].get_units(NUMBER_OF_READINGS);
         weight += scales[5].get_units(NUMBER_OF_READINGS);
