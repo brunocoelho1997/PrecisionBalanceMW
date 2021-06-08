@@ -1,6 +1,7 @@
 #ifndef PrecisionBalanceLogic_h
 #define PrecisionBalanceLogic_h
 
+#include <SoftwareSerial.h>
 #include "HX711.h"
 #include "Utils.h"
 

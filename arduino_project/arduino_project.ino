@@ -2,13 +2,9 @@
 
 PrecisionBalanceLogic precisionBalanceLogic; //the object which control the system
 
-
 void setup() {
   Serial.begin(9600);
 
-
-
-  
 }
 
 void loop() {
@@ -31,11 +27,20 @@ void loop() {
 
 
   Serial.print("getMeanValuesFromCellGroup A : ");
-  Serial.println(precisionBalanceLogic.getMeanValuesFromCellGroup('A'));
+  double meanValueA = precisionBalanceLogic.getMeanValuesFromCellGroup('A');
+  Serial.println(meanValueA);
 
   Serial.print("getMeanValuesFromCellGroup B : ");
   Serial.println(precisionBalanceLogic.getMeanValuesFromCellGroup('B'));
 
+
+  if(Serial.available())
+  {
+    char input = Serial.read();
+
+    Serial.print("input : ");
+    Serial.println(input);
+  }
   
   
 
