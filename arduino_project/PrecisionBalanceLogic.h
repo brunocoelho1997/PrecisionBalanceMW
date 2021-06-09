@@ -12,6 +12,8 @@ class PrecisionBalanceLogic
     PrecisionBalanceLogic();
     double getMeanValuesFromCellGroup(char group);
     HX711 getCell(int index);
+    void getRawValuesFromCells(double *rawValuesFromCellsArray[], int numberOfCells);
+    
     
 //    double getFoodTankState();
     

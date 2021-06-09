@@ -22,7 +22,17 @@
   {
     return scales[index];
   }
-  
+
+  void PrecisionBalanceLogic::getRawValuesFromCells(double *rawValuesFromCellsArray[], int numberOfCells)
+  {
+    *rawValuesFromCellsArray = new double[numberOfCells];
+    (*rawValuesFromCellsArray)[0] = scales[0].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[1] = scales[1].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[2] = scales[3].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[3] = scales[3].get_units(NUMBER_OF_READINGS);
+  }
+
+  //unused method
   double PrecisionBalanceLogic::getMeanValuesFromCellGroup(char group)
   {
     double weight;
