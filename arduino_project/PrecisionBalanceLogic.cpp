@@ -8,13 +8,13 @@
 
   
 
-  void PrecisionBalanceLogic::getRawValuesFromCells(double *rawValuesFromCellsArray[], HX711 scales[], int numberOfCells)
+  void PrecisionBalanceLogic::getRawValuesFromCells(double *rawValuesFromCellsArray[], HX711 cells[], int numberOfCells)
   {
     *rawValuesFromCellsArray = new double[numberOfCells];
-    (*rawValuesFromCellsArray)[0] = scales[0].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[1] = scales[1].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[2] = scales[3].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[3] = scales[3].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[0] = cells[0].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[1] = cells[1].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[2] = cells[3].get_units(NUMBER_OF_READINGS);
+    (*rawValuesFromCellsArray)[3] = cells[3].get_units(NUMBER_OF_READINGS);
   }
 
   void PrecisionBalanceLogic::calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin)
@@ -24,6 +24,13 @@
     cell->tare();
   }
 
+  void PrecisionBalanceLogic::tareCells(HX711 cells[])
+  {
+    int i;
+    for (i = 0; i < NUMBER_OF_CELLS; i = i + 1) {
+      cells[i].tare();
+    }
+  }
 
 
   //unused method
@@ -33,17 +40,17 @@
 //
 //    switch(group) {
 //      case 'A':
-//        weight = scales[0].get_units(NUMBER_OF_READINGS);
-//        weight += scales[1].get_units(NUMBER_OF_READINGS);
-//        weight += scales[2].get_units(NUMBER_OF_READINGS);
-//        weight += scales[3].get_units(NUMBER_OF_READINGS);
+//        weight = cells[0].get_units(NUMBER_OF_READINGS);
+//        weight += cells[1].get_units(NUMBER_OF_READINGS);
+//        weight += cells[2].get_units(NUMBER_OF_READINGS);
+//        weight += cells[3].get_units(NUMBER_OF_READINGS);
 //        break;
 //        
 //      case 'B':
-//        weight = scales[4].get_units(NUMBER_OF_READINGS);
-//        weight += scales[5].get_units(NUMBER_OF_READINGS);
-//        weight += scales[6].get_units(NUMBER_OF_READINGS);
-//        weight += scales[7].get_units(NUMBER_OF_READINGS);
+//        weight = cells[4].get_units(NUMBER_OF_READINGS);
+//        weight += cells[5].get_units(NUMBER_OF_READINGS);
+//        weight += cells[6].get_units(NUMBER_OF_READINGS);
+//        weight += cells[7].get_units(NUMBER_OF_READINGS);
 //        break;      
 //    }
 //
