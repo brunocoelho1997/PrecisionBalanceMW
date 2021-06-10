@@ -103,16 +103,16 @@ void loop() {
     for (int i = 1; i <= 4; i++) {
       switch (i) {
             case 1:
-              scale1.tare();
+              //scale1.tare();
               break;
             case 2:
-              scale2.tare();
+              //scale2.tare();
               break;
             case 3:
-              scale3.tare();
+              //scale3.tare();
               break;
             case 4:
-              //scale4.tare();
+              scale4.tare();
               break;
           }
    

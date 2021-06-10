@@ -1,23 +1,21 @@
 #ifndef PrecisionBalanceLogic_h
 #define PrecisionBalanceLogic_h
 
-#include <SoftwareSerial.h>
 #include "HX711.h"
 #include "Utils.h"
-
+  
 class PrecisionBalanceLogic
 {
   
   public:
     PrecisionBalanceLogic();
     double getMeanValuesFromCellGroup(char group);
-    HX711 getCell(int index);
-    void getRawValuesFromCells(double *rawValuesFromCellsArray[], int numberOfCells);
+    void getRawValuesFromCells(double *rawValuesFromCellsArray[], HX711 scales[], int numberOfCells);
+    void calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin);
     
+
+
     
-//    double getFoodTankState();
-    
-        
   private:
     /*
      * private vars

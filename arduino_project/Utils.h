@@ -19,7 +19,10 @@ const int LOADCELL_DOUT_PIN_SM16 = 8;
 const int LOADCELL_SCK_PIN_SM16 = 9;
 
 
+
 //Configs
-const int NUMBER_OF_READINGS = 10;
+const int NUMBER_OF_READINGS = 5;
 
 const int NUMBER_OF_CELLS = 4;
+
+const double CALIBRATION_FACTOR = 2280.f;
