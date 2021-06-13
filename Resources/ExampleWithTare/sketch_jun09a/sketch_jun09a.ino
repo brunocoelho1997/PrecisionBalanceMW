@@ -2,8 +2,9 @@
 
 
 // HX711 circuit wiring
-const int LOADCELL_DOUT_PIN = 2;
-const int LOADCELL_SCK_PIN = 3;
+//para sm1
+const int LOADCELL_DOUT_PIN = 8;
+const int LOADCELL_SCK_PIN = 9;
 const int LOADCELL_DOUT_PIN_2 = 4;
 const int LOADCELL_SCK_PIN_2 = 5;
 

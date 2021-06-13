@@ -20,6 +20,11 @@ void loop() {
       precisionBalanceLogic.tareCells(cells);
       Serial.println("Tare finished");
     }
+    else
+    {
+      Serial.print("Input");
+      Serial.println(temp);
+    }
    
   }
 
@@ -36,9 +41,9 @@ void loop() {
 
   Serial.println();
 
-//  cells[0].power_down();
+  //cells[0].power_down();
   delay(1000);
-//  cells[0].power_up();
+  //cells[0].power_up();
   
 }
 
