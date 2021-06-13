@@ -29,11 +29,11 @@ void loop() {
    
   }
 
-  Serial.print("getRawValuesFromCells: ");
   double *rawValuesFromCellsArray;
   
   precisionBalanceLogic.getRawValuesFromCells(&rawValuesFromCellsArray, cells, NUMBER_OF_CELLS);
-  
+
+  Serial.print("getRawValuesFromCells: ");
   int i;
   for (i = 0; i < NUMBER_OF_CELLS; i = i + 1) {
     Serial.print(" ");
