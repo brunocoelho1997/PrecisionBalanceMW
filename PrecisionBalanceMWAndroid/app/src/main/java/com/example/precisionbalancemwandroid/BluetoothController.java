@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +92,7 @@ public class BluetoothController {
             String commandTmp = command + "-";
             mmSocket.getOutputStream().write(commandTmp.getBytes());
 
-            Log.d(TAG, "Sent value to android");
+            Log.d(TAG, "The value has been sent to the balance.");
 
             return true;
 
@@ -101,6 +102,32 @@ public class BluetoothController {
             return false;
         }
     }
+
+    public String readFromBluetooth() {
+
+        try {
+            if(mmSocket == null)
+                return "";
+
+            byte[] buffer = new byte[128];  // buffer store for the stream
+            int bytes;
+
+            DataInputStream mmInStream = new DataInputStream(mmSocket.getInputStream());
+            bytes = mmInStream.read(buffer);
+            String readMessage = new String(buffer, 0, bytes);
+
+            Log.d(TAG, "Was received data from Arduino. Data: " + readMessage);
+
+            return readMessage;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.d(TAG, "Does not exist a connectedThread alive. Error: " + e);
+            return "";
+        }
+    }
+
+
 
     public boolean exportValues(){return sendCommand(Config.exportValuesValue);}
 

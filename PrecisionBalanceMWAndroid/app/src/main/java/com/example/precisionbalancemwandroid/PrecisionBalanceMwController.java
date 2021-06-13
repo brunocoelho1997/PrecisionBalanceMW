@@ -59,4 +59,8 @@ public class PrecisionBalanceMwController {
     public boolean exportValues() {
         return bluetoothController.exportValues();
     }
+
+    public String readRawData() {
+        return bluetoothController.readFromBluetooth();
+    }
 }

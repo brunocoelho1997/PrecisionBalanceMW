@@ -1,6 +1,7 @@
 #include "PrecisionBalanceLogic.h"
 
 PrecisionBalanceLogic precisionBalanceLogic; //the object which control the system
+char incomingValue = 0; //temporary var which saves the values that are received by bluetooth or printed on the serial with keyboard
 
 HX711 cells[NUMBER_OF_CELLS];
 
@@ -12,18 +13,18 @@ void setup() {
 
 void loop() {
 
-  if(Serial.available())
-  {
-    char temp = Serial.read();
-    if(temp == 't' || temp == 'T') {
+
+  if (Serial.available() > 0) {
+    incomingValue = Serial.read();
+    if(incomingValue == 't' || incomingValue == 'T') {
       Serial.println("taring...");
       precisionBalanceLogic.tareCells(cells);
       Serial.println("Tare finished");
     }
     else
     {
-      Serial.print("Input");
-      Serial.println(temp);
+      Serial.print("Input: ");
+      Serial.println(incomingValue);
     }
    
   }
