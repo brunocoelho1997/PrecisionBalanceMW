@@ -89,7 +89,7 @@ public class BluetoothController {
         try {
             if(mmSocket == null)
                 return false;
-            
+
             DataOutputStream mmOutStream = new DataOutputStream(mmSocket.getOutputStream());
 
             mmOutStream.write(command.getBytes());

@@ -7,7 +7,7 @@
  * To compile this code it's necessary to remove Bluetooth module Tx Rx connection.
  * The default password of the HC-06 it's 1234
  * To connect the Android and the Arduino they have to be paired
- * If the bluetooth module isn't removed, the program will not compile.
+ * If the bluetooth module isn't removed, the program will not compile.android
  */
 
 PrecisionBalanceLogic precisionBalanceLogic; //the object which control the system
