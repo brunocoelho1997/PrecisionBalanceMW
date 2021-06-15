@@ -1,4 +1,14 @@
 #include "PrecisionBalanceLogic.h"
+#include <SoftwareSerial.h>
+
+
+/*
+ * 
+ * To compile this code it's necessary to remove Bluetooth module Tx Rx connection.
+ * The default password of the HC-06 it's 1234
+ * To connect the Android and the Arduino they have to be paired
+ * If the bluetooth module isn't removed, the program will not compile.
+ */
 
 PrecisionBalanceLogic precisionBalanceLogic; //the object which control the system
 char incomingValue = 0; //temporary var which saves the values that are received by bluetooth or printed on the serial with keyboard
@@ -6,8 +16,12 @@ char incomingValue = 0; //temporary var which saves the values that are received
 HX711 cells[NUMBER_OF_CELLS];
 
 void setup() {
+    
   Serial.begin(9600);
 
+  // Say we are starting the serial com
+  Serial.println("Serial start!");
+    
   calibrateCells();
 }
 

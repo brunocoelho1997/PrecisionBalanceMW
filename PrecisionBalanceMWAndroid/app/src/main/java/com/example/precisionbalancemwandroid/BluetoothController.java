@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,9 +89,10 @@ public class BluetoothController {
         try {
             if(mmSocket == null)
                 return false;
+            
+            DataOutputStream mmOutStream = new DataOutputStream(mmSocket.getOutputStream());
 
-            String commandTmp = command + "-";
-            mmSocket.getOutputStream().write(commandTmp.getBytes());
+            mmOutStream.write(command.getBytes());
 
             Log.d(TAG, "The value has been sent to the balance.");
 

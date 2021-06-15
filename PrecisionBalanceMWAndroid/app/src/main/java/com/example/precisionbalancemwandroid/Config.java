@@ -11,5 +11,5 @@ public class Config {
     public static final String RC_UUID = "00001101-0000-1000-8000-00805F9B34FB"; // RC_UUID is the app's UUID string, also used in the server code.
 
 
-    public static String exportValuesValue = "1";
+    public static String exportValuesValue = "t";
 }

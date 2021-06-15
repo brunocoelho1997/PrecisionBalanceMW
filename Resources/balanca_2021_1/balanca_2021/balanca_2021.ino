@@ -98,49 +98,67 @@ void loop() {
   if(Serial.available())
   {
     char temp = Serial.read();
-    if(temp == 't' || temp == 'T')
 
-    for (int i = 1; i <= 4; i++) {
-      switch (i) {
-            case 1:
-              //scale1.tare();
-              break;
-            case 2:
-              //scale2.tare();
-              break;
-            case 3:
-              //scale3.tare();
-              break;
-            case 4:
-              scale4.tare();
-              break;
-          }
-   
+    Serial.print("\n serial input: ");
+    Serial.println(temp);
+
+    
+    
+//    if(temp == 't' || temp == 'T')
+//
+//    for (int i = 1; i <= 4; i++) {
+//      switch (i) {
+//            case 1:
+//              //scale1.tare();
+//              break;
+//            case 2:
+//              //scale2.tare();
+//              break;
+//            case 3:
+//              //scale3.tare();
+//              break;
+//            case 4:
+//              scale4.tare();
+//              break;
+//          }
+//   
+//    }
+  }
+
+  if(portOne.available())
+  {
+    while (portOne.available() > 0) {
+
+    char temp = portOne.read();
+  
+  
+    Serial.print("\n bluetooth input: ");
+    Serial.println(temp);
+      
+  //    for (int i = 0; i <= 4; i++) {
+  //      switch (i) {
+  //            case 1:
+  //              scale1.tare();
+  //              break;
+  //            case 2:
+  //              scale2.tare();
+  //              break;
+  //            case 3:
+  //              scale3.tare();
+  //              break;
+  //            case 4:
+  //              scale4.tare();
+  //              break;
+  //          }
+  //      }
     }
+  
+    // blank line to separate data from the two ports:
+    Serial.println();
+  } else {
+    Serial.println("portOne not available");
   }
   
-  while (portOne.available() > 0) {
-  char temp = portOne.read();
-    for (int i = 0; i <= 4; i++) {
-      switch (i) {
-            case 1:
-              scale1.tare();
-              break;
-            case 2:
-              scale2.tare();
-              break;
-            case 3:
-              scale3.tare();
-              break;
-            case 4:
-              scale4.tare();
-              break;
-          }
-      }
-  }
-
-  // blank line to separate data from the two ports:
-  Serial.println();
 
 delay(500);
 
