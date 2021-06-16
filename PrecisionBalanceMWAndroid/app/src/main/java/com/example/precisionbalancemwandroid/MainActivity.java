@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = "MainActivity";
 
     PrecisionBalanceMwController precisionBalanceMwController;
+    String actualRawData;
 
     private TextView textViewRawData;
     private Button btnConnect;
     private Button btnExportValues;
+    private Button btnTare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +70,20 @@ public class MainActivity extends AppCompatActivity {
         btnExportValues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean result = precisionBalanceMwController.exportValues();
+                boolean result = precisionBalanceMwController.exportValues(actualRawData);
                 if(!result)
                     Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        btnTare = findViewById(R.id.btn_tare);
+        btnTare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            boolean result = precisionBalanceMwController.tare();
+            if(!result)
+                Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -84,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
                 textViewRawData.post(new Runnable() {
                     @Override
                     public void run() {
-                        String data = precisionBalanceMwController.readRawData();
-                        textViewRawData.setText(data);
-                        Log.d(TAG, "Was requested raw data to be printed. Data:" + data);
+                        actualRawData = precisionBalanceMwController.readRawData();
+                        textViewRawData.setText(actualRawData);
+                        Log.d(TAG, "Was requested raw data to be printed. Data:" + actualRawData);
                     }
                 });
             }
-        }, 0, 3, TimeUnit.SECONDS);
+        }, 0, 2, TimeUnit.SECONDS);
 
     }
 

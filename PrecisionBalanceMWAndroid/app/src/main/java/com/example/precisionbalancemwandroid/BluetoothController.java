@@ -118,6 +118,8 @@ public class BluetoothController {
             bytes = mmInStream.read(buffer);
             String readMessage = new String(buffer, 0, bytes);
 
+            readMessage = removeNoise(readMessage);
+
             Log.d(TAG, "Was received data from Arduino. Data: " + readMessage);
 
             return readMessage;
@@ -129,9 +131,28 @@ public class BluetoothController {
         }
     }
 
+    /**
+     * When is received raw values from arduino... It comes like "getRawValuesFromCells:  0.13 0.24 -0.01 -0.02". The "getRawValuesFromCells:" must be removed
+     * @param readMessage
+     * @return
+     */
+    private String removeNoise(String readMessage) {
+
+        String messageWithoutNoise = readMessage;
+
+        if(readMessage.contains(":"))
+        {
+            messageWithoutNoise = readMessage.split("\\:")[1];
+
+        }
+
+        return messageWithoutNoise;
+    }
 
 
-    public boolean exportValues(){return sendCommand(Config.exportValuesValue);}
+    public boolean exportValues(String actualRawData){return sendCommand(Config.exportValuesValueCommand + ":" + actualRawData);}
+
+    public boolean tare(){return sendCommand(Config.tareCommand);}
 
     private class BluetoothConnection extends AsyncTask<Void, Void, Void>  // UI thread
     {

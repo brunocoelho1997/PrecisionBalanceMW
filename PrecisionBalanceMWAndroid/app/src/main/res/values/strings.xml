@@ -2,4 +2,7 @@
     <string name="app_name">PrecisionBalanceMWAndroid</string>
     <string name="permissions_denied">Sem permissões</string>
     <string name="permissions_denied_desc">É necessário ativar as permissões do bluetooth.</string>
+    <string name="export_values">Exportar Valores</string>
+    <string name="connect">Iniciar ligação</string>
+    <string name="tare">Reset Valores</string>
 </resources>

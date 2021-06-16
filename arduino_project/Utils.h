@@ -21,7 +21,7 @@ const int LOADCELL_SCK_PIN_SM16 = 9;
 
 
 //Configs
-const int NUMBER_OF_READINGS = 5;
+const int NUMBER_OF_READINGS = 2;
 
 const int NUMBER_OF_CELLS = 4;
 
