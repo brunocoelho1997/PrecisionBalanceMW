@@ -90,10 +90,12 @@ public class BluetoothController {
             if(mmSocket == null)
                 return false;
 
-            DataOutputStream mmOutStream = new DataOutputStream(mmSocket.getOutputStream());
+//            DataOutputStream mmOutStream = new DataOutputStream(mmSocket.getOutputStream());
+//
+//            mmOutStream.write(command.getBytes());
 
-            mmOutStream.write(command.getBytes());
 
+            mmSocket.getOutputStream().write(command.getBytes());
             Log.d(TAG, "The value has been sent to the balance.");
 
             return true;
@@ -111,7 +113,7 @@ public class BluetoothController {
             if(mmSocket == null)
                 return "";
 
-            byte[] buffer = new byte[128];  // buffer store for the stream
+            byte[] buffer = new byte[160];  // buffer store for the stream
             int bytes;
 
             DataInputStream mmInStream = new DataInputStream(mmSocket.getInputStream());
@@ -150,7 +152,7 @@ public class BluetoothController {
     }
 
 
-    public boolean exportValues(String actualRawData){return sendCommand(Config.exportValuesValueCommand + ":" + actualRawData);}
+    public boolean exportValues(){return sendCommand(Config.exportValuesValueCommand);}
 
     public boolean tare(){return sendCommand(Config.tareCommand);}
 

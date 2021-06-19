@@ -56,8 +56,8 @@ public class PrecisionBalanceMwController {
         this.bluetoothController.setBluetoothAdapter(bluetoothAdapter);
     }
 
-    public boolean exportValues(String actualRawData) {
-        return bluetoothController.exportValues(actualRawData);
+    public boolean exportValues() {
+        return bluetoothController.exportValues();
     }
 
     public boolean tare() {

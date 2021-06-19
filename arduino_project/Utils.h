@@ -23,6 +23,7 @@ const int LOADCELL_SCK_PIN_SM16 = 9;
 //Configs
 const int NUMBER_OF_READINGS = 2;
 
-const int NUMBER_OF_CELLS = 4;
+const int NUMBER_OF_CELLS = 16;
+const int NUMBER_OF_RAW_VALUES = 17; //16 cells plus 1 index to indicate if is to export values or not
 
 const double CALIBRATION_FACTOR = 2280.f;

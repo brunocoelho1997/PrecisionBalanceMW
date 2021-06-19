@@ -11,10 +11,13 @@
   void PrecisionBalanceLogic::getRawValuesFromCells(double *rawValuesFromCellsArray[], HX711 cells[], int numberOfCells)
   {
     *rawValuesFromCellsArray = new double[numberOfCells];
-    (*rawValuesFromCellsArray)[0] = cells[0].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[1] = cells[1].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[2] = cells[3].get_units(NUMBER_OF_READINGS);
-    (*rawValuesFromCellsArray)[3] = cells[3].get_units(NUMBER_OF_READINGS);
+    int i;
+    for (i = 0; i < NUMBER_OF_CELLS; i = i + 1) {
+      (*rawValuesFromCellsArray)[i] = cells[i].get_units(NUMBER_OF_READINGS);
+    }
+
+    (*rawValuesFromCellsArray)[16] = 0; //to indicate that raw cells data will not be exported
+
   }
 
   void PrecisionBalanceLogic::calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin)

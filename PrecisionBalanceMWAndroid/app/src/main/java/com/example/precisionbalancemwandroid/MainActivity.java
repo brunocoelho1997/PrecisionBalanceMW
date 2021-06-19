@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         btnExportValues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean result = precisionBalanceMwController.exportValues(actualRawData);
-                if(!result)
-                    Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
+            boolean result = precisionBalanceMwController.exportValues();
+            if(!result)
+                Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
 
             }
         });
