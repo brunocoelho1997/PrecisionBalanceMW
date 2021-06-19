@@ -9,11 +9,12 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Timer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     String actualRawData;
 
     private TextView textViewRawData;
+    private TextView textViewGroupCellA;
+    private TextView textViewGroupCellB;
+    private TextView textViewGroupCellC;
+    private TextView textViewGroupCellD;
     private Button btnConnect;
     private Button btnExportValues;
     private Button btnTare;
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_main);
 
         this.precisionBalanceMwController = new PrecisionBalanceMwController(getApplicationContext());
@@ -90,6 +96,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         textViewRawData = findViewById(R.id.tv_raw_data);
+        textViewGroupCellA = findViewById(R.id.tv_group_cell_a);
+        textViewGroupCellB = findViewById(R.id.tv_group_cell_b);
+        textViewGroupCellC = findViewById(R.id.tv_group_cell_c);
+        textViewGroupCellD = findViewById(R.id.tv_group_cell_d);
 
         ScheduledExecutorService textService = Executors.newScheduledThreadPool(1);
         textService.scheduleAtFixedRate(new Runnable() {
@@ -99,12 +109,24 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         actualRawData = precisionBalanceMwController.readRawData();
-                        textViewRawData.setText(actualRawData);
+
+                        updateTextViews(actualRawData);
+
                         Log.d(TAG, "Was requested raw data to be printed. Data:" + actualRawData);
                     }
                 });
             }
         }, 0, 2, TimeUnit.SECONDS);
+
+    }
+
+    void updateTextViews(String actualRawData) {
+
+        textViewRawData.setText(actualRawData);
+        textViewGroupCellA.setText(String.valueOf(precisionBalanceMwController.getMeanFromGroupCell(GroupCell.A, actualRawData)));
+        textViewGroupCellB.setText(String.valueOf(precisionBalanceMwController.getMeanFromGroupCell(GroupCell.B, actualRawData)));
+        textViewGroupCellC.setText(String.valueOf(precisionBalanceMwController.getMeanFromGroupCell(GroupCell.C, actualRawData)));
+        textViewGroupCellD.setText(String.valueOf(precisionBalanceMwController.getMeanFromGroupCell(GroupCell.D, actualRawData)));
 
     }
 

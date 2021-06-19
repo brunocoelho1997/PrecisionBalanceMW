@@ -92,12 +92,13 @@ void calibrateCells()
 
 void printRawValuesFromCells(double *rawValuesFromCellsArray[])
 {
-  Serial.print("getRawValuesFromCells:");
   int i;
-  for (i = 0; i < NUMBER_OF_RAW_VALUES; i = i + 1) {
-    Serial.print(" ");
+  for (i = 0; i < NUMBER_OF_RAW_VALUES-1; i = i + 1) {
     Serial.print((*rawValuesFromCellsArray)[i]);
+    Serial.print(" ");
   }
+  Serial.print((*rawValuesFromCellsArray)[NUMBER_OF_RAW_VALUES-1]); //print last value without a blank space at the end
+  Serial.print(";");
   Serial.println();
   Serial.println();
 

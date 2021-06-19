@@ -1,24 +1,17 @@
 package com.example.precisionbalancemwandroid;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -41,34 +34,30 @@ public class BluetoothController {
         this.context = context;
     }
 
-    public void verifyIfBluetoothIsEnabled(Context context){
+    public void verifyIfBluetoothIsEnabled(Context context) {
         //if the bluetooth is not enabled
         if (!bluetoothAdapter.isEnabled()) {
             //Request to enable the bluetooth
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            ((Activity)context).startActivityForResult(enableBtIntent, MY_PERMISSIONS_REQUEST_CODE_BT);
+            ((Activity) context).startActivityForResult(enableBtIntent, MY_PERMISSIONS_REQUEST_CODE_BT);
         }
     }
 
-    public String startDiscoveringDevices(Context context){
+    public String startDiscoveringDevices(Context context) {
 
         //verify again if the bluetooth is enabled... just for precaution
-        if(!bluetoothAdapter.isEnabled())
-        {
+        if (!bluetoothAdapter.isEnabled()) {
             Log.d("startDiscoringDevices", "Bluetooth isn't enabled.");
             return "Bluetooth isn't enabled.";
         }
 
         Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
 
-        if (pairedDevices.size()>0)
-        {
-            for(BluetoothDevice bt : pairedDevices)
-            {
+        if (pairedDevices.size() > 0) {
+            for (BluetoothDevice bt : pairedDevices) {
                 Log.d("BluetoothController", "paired device: " + bt.getName() + "\n" + bt.getAddress());
 
-                if(bt.getName().equals("HC-06"))
-                {
+                if (bt.getName().equals("HC-06")) {
                     String info = bt.getAddress();
                     String address = info.substring(info.length() - 17);
                     this.bluetoothAddressArduino = address;
@@ -88,7 +77,7 @@ public class BluetoothController {
     public boolean sendCommand(String command) {
 
         try {
-            if(mmSocket == null)
+            if (mmSocket == null)
                 return false;
 
 //            DataOutputStream mmOutStream = new DataOutputStream(mmSocket.getOutputStream());
@@ -111,7 +100,7 @@ public class BluetoothController {
     public String readFromBluetooth() {
 
         try {
-            if(mmSocket == null)
+            if (mmSocket == null)
                 return "";
 
             byte[] buffer = new byte[160];  // buffer store for the stream
@@ -136,59 +125,61 @@ public class BluetoothController {
 
     /**
      * When is received raw values from arduino... It comes like "getRawValuesFromCells:  0.13 0.24 -0.01 -0.02". The "getRawValuesFromCells:" must be removed
-     * @param readMessage
-     * @return
+     *
+     * @param readMessage raw data from arduino with noise
+     * @return clean raw data (only with cell values)
      */
     private String removeNoise(String readMessage) {
 
         String messageWithoutNoise = readMessage;
 
-        if(readMessage.contains(":"))
-        {
-            messageWithoutNoise = readMessage.split("\\:")[1];
+        if (readMessage.contains(";")) {
+            messageWithoutNoise = messageWithoutNoise.split("\\;")[0];
 
+        } else {
+            return "";
         }
 
         return messageWithoutNoise;
     }
 
 
-    public boolean exportValues(){return sendCommand(Config.EXPORT_VALUES_COMMAND);}
+    public boolean exportValues() {
+        return sendCommand(Config.EXPORT_VALUES_COMMAND);
+    }
 
-    public boolean tare(){return sendCommand(Config.TARE_COMMAND);}
+    public boolean tare() {
+        return sendCommand(Config.TARE_COMMAND);
+    }
 
     private class BluetoothConnection extends AsyncTask<Void, Void, Void>  // UI thread
     {
         private boolean ConnectSuccess = true; //if it's here, it's almost connected
 
         @Override
-        protected void onPreExecute()
-        {
+        protected void onPreExecute() {
             Toast.makeText(context, "Connecting with the bluetooth precision balance...", Toast.LENGTH_LONG).show();
         }
 
         @Override
         protected Void doInBackground(Void... devices) //while the progress dialog is shown, the connection is done in background
         {
-            try
-            {
-                if (mmSocket == null || !isBtConnected)
-                {
+            try {
+                if (mmSocket == null || !isBtConnected) {
                     bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
                     mmDevice = bluetoothAdapter.getRemoteDevice(bluetoothAddressArduino);//connects to the device's address and checks if it's available
                     mmSocket = mmDevice.createInsecureRfcommSocketToServiceRecord(UUID.fromString(Config.RC_UUID));//create a RFCOMM (SPP) connection
                     BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                     mmSocket.connect();//start connection
                 }
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 ConnectSuccess = false;//if the try failed, you can check the exception here
-                Log.d("BluetoothController" , "error: " + e.getMessage());
+                Log.d("BluetoothController", "error: " + e.getMessage());
 
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(Void result) //after the doInBackground, it checks if everything went fine
         {
