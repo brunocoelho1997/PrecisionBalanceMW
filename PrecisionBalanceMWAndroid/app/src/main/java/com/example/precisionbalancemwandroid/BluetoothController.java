@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import static com.example.precisionbalancemwandroid.Config.CONNECTION_ERROR_MESSAGE;
 import static com.example.precisionbalancemwandroid.Config.MY_PERMISSIONS_REQUEST_CODE_BT;
 
 
@@ -75,7 +76,7 @@ public class BluetoothController {
                     //start the connection with the bt device
                     new BluetoothConnection().execute();
 
-                    return "Starting the connection with the Jeep...";
+                    return "Starting connection with the precision balance...";
                 }
             }
             return "Didn't find a paired device with name HC-06. It's necessary to pair the Android with the device. Pin: 1234";
@@ -152,9 +153,9 @@ public class BluetoothController {
     }
 
 
-    public boolean exportValues(){return sendCommand(Config.exportValuesValueCommand);}
+    public boolean exportValues(){return sendCommand(Config.EXPORT_VALUES_COMMAND);}
 
-    public boolean tare(){return sendCommand(Config.tareCommand);}
+    public boolean tare(){return sendCommand(Config.TARE_COMMAND);}
 
     private class BluetoothConnection extends AsyncTask<Void, Void, Void>  // UI thread
     {
@@ -163,7 +164,7 @@ public class BluetoothController {
         @Override
         protected void onPreExecute()
         {
-            Toast.makeText(context, "Connecting with the bluetooth rc...", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "Connecting with the bluetooth precision balance...", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -194,7 +195,7 @@ public class BluetoothController {
             super.onPostExecute(result);
 
             if (!ConnectSuccess)
-                Toast.makeText(context, "Error with connection with the bluetooth. Verify if the precision balance is on.", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, CONNECTION_ERROR_MESSAGE, Toast.LENGTH_LONG).show();
             else
                 Toast.makeText(context, "Connection initialized with success.", Toast.LENGTH_LONG).show();
 

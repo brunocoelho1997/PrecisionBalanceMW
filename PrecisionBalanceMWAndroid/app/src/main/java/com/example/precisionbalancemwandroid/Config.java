@@ -11,6 +11,8 @@ public class Config {
     public static final String RC_UUID = "00001101-0000-1000-8000-00805F9B34FB"; // RC_UUID is the app's UUID string, also used in the server code.
 
 
-    public static String exportValuesValueCommand = "e";
-    public static String tareCommand = "t";
+    public static String EXPORT_VALUES_COMMAND= "e";
+    public static String TARE_COMMAND = "t";
+
+    public static String CONNECTION_ERROR_MESSAGE = "Connection error with the precision balance";
 }

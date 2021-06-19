@@ -18,6 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import static com.example.precisionbalancemwandroid.Config.CONNECTION_ERROR_MESSAGE;
 import static com.example.precisionbalancemwandroid.Config.PERMISSIONS;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             boolean result = precisionBalanceMwController.exportValues();
             if(!result)
-                Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             boolean result = precisionBalanceMwController.tare();
             if(!result)
-                Toast.makeText(getApplicationContext(), "Error with connection with the RC.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
 
             }
         });
