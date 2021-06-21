@@ -1,7 +1,5 @@
 package com.example.precisionbalancemwandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
@@ -9,11 +7,11 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         setContentView(R.layout.activity_main);
 
         this.precisionBalanceMwController = new PrecisionBalanceMwController(getApplicationContext());
@@ -48,13 +46,10 @@ public class MainActivity extends AppCompatActivity {
         boolean userHasPermissionsTmp = precisionBalanceMwController.hasPermissions(this, PERMISSIONS);
         precisionBalanceMwController.setUserHasPermissions(userHasPermissionsTmp);
 
-        if(precisionBalanceMwController.isUserHasPermissions())
-        {
+        if (precisionBalanceMwController.isUserHasPermissions()) {
             defineSensors();
             defineLayout();
-        }
-        else
-        {
+        } else {
             precisionBalanceMwController.requestPermissionsToUser(this);
         }
     }
@@ -77,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
         btnExportValues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            boolean result = precisionBalanceMwController.exportValues();
-            if(!result)
-                Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+                boolean result = precisionBalanceMwController.exportValues();
+                if (!result)
+                    Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -88,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
         btnTare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            boolean result = precisionBalanceMwController.tare();
-            if(!result)
-                Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
+                boolean result = precisionBalanceMwController.tare();
+                if (!result)
+                    Toast.makeText(getApplicationContext(), CONNECTION_ERROR_MESSAGE, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -134,11 +129,9 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        for(int i=0; i<=grantResults.length-1; i++)
-        {
-            if(grantResults[i] == PackageManager.PERMISSION_DENIED)
-            {
-                throwAlertBuilder(getString(R.string.permissions_denied),getString(R.string.permissions_denied_desc));
+        for (int i = 0; i <= grantResults.length - 1; i++) {
+            if (grantResults[i] == PackageManager.PERMISSION_DENIED) {
+                throwAlertBuilder(getString(R.string.permissions_denied), getString(R.string.permissions_denied_desc));
                 return;
             }
         }
@@ -148,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         defineLayout();
     }
 
-    public void throwAlertBuilder(String titleMessage, String descMessage){
+    public void throwAlertBuilder(String titleMessage, String descMessage) {
         new AlertDialog.Builder(this)
                 .setTitle(titleMessage)
                 .setMessage(descMessage)

@@ -27,7 +27,6 @@ void setup() {
 
 void loop() {
 
-
   if (Serial.available() > 0) {
     incomingValue = Serial.read();
     if(incomingValue == 't') {
@@ -51,9 +50,10 @@ void loop() {
   }
 
   precisionBalanceLogic.getRawValuesFromCells(&rawValuesFromCellsArray, cells, NUMBER_OF_CELLS);
-
-  printRawValuesFromCells(&rawValuesFromCellsArray);
   
+  printRawValuesFromCells(&rawValuesFromCellsArray);
+
+  delete rawValuesFromCellsArray;
 
   //cells[0].power_down();
   delay(1000);
@@ -97,7 +97,7 @@ void printRawValuesFromCells(double *rawValuesFromCellsArray[])
     Serial.print((*rawValuesFromCellsArray)[i]);
     Serial.print(" ");
   }
-  Serial.print((*rawValuesFromCellsArray)[NUMBER_OF_RAW_VALUES-1]); //print last value without a blank space at the end
+    Serial.print((*rawValuesFromCellsArray)[NUMBER_OF_RAW_VALUES-1]); //print last value without a blank space at the end
   Serial.print(";");
   Serial.println();
   Serial.println();
