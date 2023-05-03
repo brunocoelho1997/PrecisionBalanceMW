@@ -2,14 +2,6 @@
 #include <SoftwareSerial.h>
 
 
-/*
- * 
- * To compile this code it's necessary to remove Bluetooth module Tx Rx connection.
- * The default password of the HC-06 it's 1234
- * To connect the Android and the Arduino they have to be paired
- * If the bluetooth module isn't removed, the program will not compile.android
- */
-
 PrecisionBalanceLogic precisionBalanceLogic; //the object which control the system
 char incomingValue = 0; //temporary var which saves the values that are received by bluetooth or printed on the serial with keyboard
 
@@ -61,34 +53,32 @@ void loop() {
   
 }
 
-
-
 void calibrateCells()
 {
 
   Serial.println("Calibrating cells");
   
-  precisionBalanceLogic.calibrateCell(&cells[0], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1);
-  precisionBalanceLogic.calibrateCell(&cells[1], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2);
-  precisionBalanceLogic.calibrateCell(&cells[2], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3);
-  precisionBalanceLogic.calibrateCell(&cells[3], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4);
+  precisionBalanceLogic.calibrateCell(&cells[0], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1, CALIBRATION_FACTOR_VALUES[0]);
+  precisionBalanceLogic.calibrateCell(&cells[1], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2, CALIBRATION_FACTOR_VALUES[1]);
+  precisionBalanceLogic.calibrateCell(&cells[2], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3, CALIBRATION_FACTOR_VALUES[2]);
+  precisionBalanceLogic.calibrateCell(&cells[3], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4, CALIBRATION_FACTOR_VALUES[3]);
 
-  precisionBalanceLogic.calibrateCell(&cells[4], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1);
-  precisionBalanceLogic.calibrateCell(&cells[5], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2);
-  precisionBalanceLogic.calibrateCell(&cells[6], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3);
-  precisionBalanceLogic.calibrateCell(&cells[7], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4);
-
-  
-  precisionBalanceLogic.calibrateCell(&cells[8], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1);
-  precisionBalanceLogic.calibrateCell(&cells[9], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2);
-  precisionBalanceLogic.calibrateCell(&cells[10], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3);
-  precisionBalanceLogic.calibrateCell(&cells[11], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4);
+  precisionBalanceLogic.calibrateCell(&cells[4], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1, CALIBRATION_FACTOR_VALUES[4]);
+  precisionBalanceLogic.calibrateCell(&cells[5], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2, CALIBRATION_FACTOR_VALUES[5]);
+  precisionBalanceLogic.calibrateCell(&cells[6], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3, CALIBRATION_FACTOR_VALUES[6]);
+  precisionBalanceLogic.calibrateCell(&cells[7], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4, CALIBRATION_FACTOR_VALUES[7]);
 
   
-  precisionBalanceLogic.calibrateCell(&cells[12], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1);
-  precisionBalanceLogic.calibrateCell(&cells[13], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2);
-  precisionBalanceLogic.calibrateCell(&cells[14], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3);
-  precisionBalanceLogic.calibrateCell(&cells[15], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4);
+  precisionBalanceLogic.calibrateCell(&cells[8], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1, CALIBRATION_FACTOR_VALUES[8]);
+  precisionBalanceLogic.calibrateCell(&cells[9], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2, CALIBRATION_FACTOR_VALUES[9]);
+  precisionBalanceLogic.calibrateCell(&cells[10], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3, CALIBRATION_FACTOR_VALUES[10]);
+  precisionBalanceLogic.calibrateCell(&cells[11], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4, CALIBRATION_FACTOR_VALUES[11]);
+
+  
+  precisionBalanceLogic.calibrateCell(&cells[12], LOADCELL_DOUT_PIN_SM1, LOADCELL_SCK_PIN_SM1, CALIBRATION_FACTOR_VALUES[12]);
+  precisionBalanceLogic.calibrateCell(&cells[13], LOADCELL_DOUT_PIN_SM2, LOADCELL_SCK_PIN_SM2, CALIBRATION_FACTOR_VALUES[13]);
+  precisionBalanceLogic.calibrateCell(&cells[14], LOADCELL_DOUT_PIN_SM3, LOADCELL_SCK_PIN_SM3, CALIBRATION_FACTOR_VALUES[14]);
+  precisionBalanceLogic.calibrateCell(&cells[15], LOADCELL_DOUT_PIN_SM4, LOADCELL_SCK_PIN_SM4, CALIBRATION_FACTOR_VALUES[15]);
   
 }
 

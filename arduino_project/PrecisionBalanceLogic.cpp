@@ -20,10 +20,10 @@
 
   }
 
-  void PrecisionBalanceLogic::calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin)
+  void PrecisionBalanceLogic::calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin, float calibrationFactor)
   {
     cell->begin(loadcellDoutPin, loadCellSckPin);
-    cell->set_scale(CALIBRATION_FACTOR);
+    cell->set_scale(calibrationFactor);
     cell->tare();
   }
 

@@ -11,7 +11,7 @@ class PrecisionBalanceLogic
     PrecisionBalanceLogic();
     double getMeanValuesFromCellGroup(char group);
     void getRawValuesFromCells(double *rawValuesFromCellsArray[], HX711 scales[], int numberOfCells);
-    void calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin);
+    void calibrateCell(HX711 *cell, int loadcellDoutPin, int loadCellSckPin, float calibrationFactor);
     void tareCells(HX711 scales[]);
     
     
