@@ -1,6 +1,6 @@
 #include "HX711.h" //You must have this library in your arduino library folder
-#define DOUT 38
-#define CLK 39
+#define DOUT 43
+#define CLK 42
 HX711 scale;
 //Change this calibration factor as per your load cell once it is found you many need to vary it in thousands
 float calibration_factor = 2280; //-106600 worked for my 40Kg max scale setup
