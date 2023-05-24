@@ -8,23 +8,35 @@ char incomingValue = 0; //temporary var which saves the values that are received
 HX711 cells[NUMBER_OF_CELLS];
 
 double *rawValuesFromCellsArray;
-  
+
+int MOCK_VALUE = 0;
+
 void setup() {
     
   Serial.begin(9600);
   //Serial.println("Serial start!");
     
-  calibrateCells();
+  //calibrateCells();
 }
 
 void loop() {
 
+
+  if (Serial.available() > 0) {
+    incomingValue = Serial.read();
+    if(incomingValue == 'T') {
+      MOCK_VALUE++;
+    }   
+  }
+
+  
+  /*
   if (Serial.available() > 0) {
     incomingValue = Serial.read();
     if(incomingValue == 't') {
-      //Serial.println("taring...");
+      Serial.println("taring...");
       precisionBalanceLogic.tareCells(cells);
-      //Serial.println("Tare finished");
+      Serial.println("Tare finished");
     }   
   }
 
@@ -35,6 +47,9 @@ void loop() {
 
   delete rawValuesFromCellsArray;
 
+  delay(1000);*/
+
+  printDummyRawValuesFromCells();
   delay(1000);
   
 }
@@ -42,7 +57,7 @@ void loop() {
 void calibrateCells()
 {
 
-  //Serial.println("Calibrating cells");
+  Serial.println("Calibrating cells");
   
   precisionBalanceLogic.calibrateCell(&cells[0], LOADCELL_DOUT_PIN_SM14, LOADCELL_SCK_PIN_SM14, CALIBRATION_FACTOR_VALUES[0]);
   precisionBalanceLogic.calibrateCell(&cells[1], LOADCELL_DOUT_PIN_SM16, LOADCELL_SCK_PIN_SM16, CALIBRATION_FACTOR_VALUES[1]);
@@ -75,8 +90,24 @@ void printRawValuesFromCells(double *rawValuesFromCellsArray[])
     Serial.print((*rawValuesFromCellsArray)[i]);
     Serial.print(" ");
   }
-    Serial.print((*rawValuesFromCellsArray)[NUMBER_OF_CELLS-1]); //print last value without a blank space at the end
-  //Serial.print(";");
+  Serial.print((*rawValuesFromCellsArray)[NUMBER_OF_CELLS-1]); //print last value without a blank space at the end
+  Serial.print(";");
   Serial.println();
+  Serial.println();
+
+}
+
+void printDummyRawValuesFromCells()
+{
+  int i;
+  int MOCK_VALUES [] = {MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE, MOCK_VALUE};
+
+  for (i = 0; i < NUMBER_OF_CELLS-1; i = i + 1) {
+    Serial.print(MOCK_VALUES[i]);
+    Serial.print(" ");
+  }
+  Serial.println(MOCK_VALUES[NUMBER_OF_CELLS-1]); //print last value without a blank space at the end
+  //Serial.println();
+  //Serial.println();
 
 }

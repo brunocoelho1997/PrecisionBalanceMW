@@ -1,0 +1,63 @@
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\bin\Debug\SerialCom.exe
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\bin\Debug\SerialCom.pdb
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\bin\Debug\SerialCom.xml
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Form1.resources
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\SerialCom.exe
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\SerialCom.xml
+C:\Users\Kelvin\Documents\Visual Studio 2010\Projects\VB\SerialCom\SerialCom\obj\x86\Debug\SerialCom.pdb
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.exe
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.xml
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.pdb
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.exe
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.pdb
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.xml
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.GenerateResource.Cache
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbprojResolveAssemblyReference.cache
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.exe.config
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Configurations.resources
+C:\Users\Fixo-MW\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Main.resources
+C:\Users\Util\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.exe.config
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.exe
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.xml
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.pdb
+C:\Users\Util\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.exe
+C:\Users\Util\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.pdb
+C:\Users\Util\Desktop\SerialCom\SerialCom\bin\Debug\SerialCom.xml
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbprojResolveAssemblyReference.cache
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Configurations.resources
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Main.resources
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\Util\Desktop\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.GenerateResource.Cache
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\bin\Debug\SerialCom.exe.config
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.exe
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.xml
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.pdb
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\bin\Debug\SerialCom.exe
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\bin\Debug\SerialCom.pdb
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\bin\Debug\SerialCom.xml
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbprojResolveAssemblyReference.cache
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Configurations.resources
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Main.resources
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Resources.resources
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.GenerateResource.Cache
+C:\Save\02_Trabalhos\2023\23013-VETFISIO\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Plataforma.resources
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\bin\Debug\SerialCom.exe.config
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\bin\Debug\SerialCom.exe
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\bin\Debug\SerialCom.pdb
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\bin\Debug\SerialCom.xml
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.AssemblyReference.cache
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.SuggestedBindingRedirects.cache
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Configurations.resources
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Main.resources
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Resources.resources
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.Plataforma.resources
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.GenerateResource.cache
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.vbproj.CoreCompileInputs.cache
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.exe
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.xml
+C:\workspace\PrecisionBalanceMW\SerialCom\SerialCom\obj\x86\Debug\SerialCom.pdb
